@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <div class="w-full h-full flex items-center justify-center bg-gradient-to-l from bg-purple-700 to-purple-950">
+      <div class="flex flex-col gap-6 h-[600px]">
+        <h1 class="text-2xl font-bold mb-4 text-center px-2 text-white">
+          PASSWORD GENERATOR
+        </h1>
+        <div class="border h-11 rounded-xl flex relative bg-transparent">
+          <p class="self-center ml-3 text-yellow-300 font-bold " id="password">PASSWORD</p>
+          <button class="absolute right-2 self-center" onclick="copy()"><img src='copy.svg' height="42px" width="20px"></button>
+        </div>
+        <div class="border rounded-xl flex flex-col h-[330px] gap-4 mt-2">
+          <div class="relative pl-2 text-white font-bold">
+            Password Length
+            <span id="lenPass" class="absolute right-2">0</span>
+          </div>
+          <input type="range" min="1" max="20" class="slider" step="1" id="LenSlider" oninput="handSlider()" >
+          <div class="flex flex-col">
+            <div class="text-white font-bold">
+              <input type="checkbox" class="mr-2 ml-2 " id="upper" >Include Uppercase Letters
+            </div>
+            <div class="text-white font-bold">
+              <input type="checkbox" class="mr-2 ml-2 " id="lower" >Include Lowercase Letters
+            </div>
+            <div class="text-white font-bold">
+              <input type="checkbox" class="mr-2 ml-2 " id="number" >Include Numbers
+            </div>
+            <div class="text-white font-bold">
+              <input type="checkbox" class="mr-2 ml-2 border " id="symbol" >Include Symbols
+            </div>
+          </div>
+          <div class="relative">
+            <p class="pl-2 text-white font-bold text-[28px]">
+              Strength<span class="absolute right-2 h-6 w-6 rounded-full border bg-red-700" id="circle"></span>
+            </p>
+          </div>
+          <button class="mx-4 border rounded-md py-2 text-yellow-300 font-bold" id="Pass-Ans" onclick="genPass()">GENERATE PASSWORD</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
